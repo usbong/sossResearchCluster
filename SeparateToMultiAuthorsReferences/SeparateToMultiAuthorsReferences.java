@@ -38,7 +38,7 @@ public class SeparateToMultiAuthorsReferences {
 			
 			//using ".," as the delimiter, separate the authors
 			String[] authors_dotComma = parts[1].split("\\.,");
-			writer.print(authors_dotComma[0].trim()+";"+authors_dotComma[0].trim()+";"+parts[parts.length-1].trim()+"\n");
+			writer.print(authors_dotComma[0].trim()+";"+authors_dotComma[0].trim()+";"+parts[parts.length-1].trim().replaceAll("\"","")+"\n");
 
 //			System.out.println("authors_dotComma.length: "+authors_dotComma.length);
 			int start=0;
@@ -55,7 +55,7 @@ public class SeparateToMultiAuthorsReferences {
 				String[] parts2 = authors_dotComma[i].split(",");				
 				for (int j=0; j<parts2.length; j++) { 
 //					System.out.println("parts2[j]: "+parts2[j]);
-					writer.print(parts2[j].trim().replace("and ","")+";"+parts2[j].trim().replace("and ","")+";"+parts[parts.length-1].trim()+"\n");
+					writer.print(parts2[j].trim().replace("and ","")+";"+parts2[j].trim().replace("and ","")+";"+parts[parts.length-1].trim().replaceAll("\"","")+"\n");
 				}					
 			}			
 		}			
